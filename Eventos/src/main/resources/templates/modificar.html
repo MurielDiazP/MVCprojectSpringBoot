@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmins="http://www.w3.orq/1999/xhtm]">
+    <head>
+        <title>DATOS DEL NUEVO AUTOR</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="Plantilla/plantilla :: cabecero"></header>
+        <h2>[[#{autor.tabla}]]</h2>
+        <a th:href="@{/}">[[#{boton.regresar}]]</a>
+        <br/>
+        <form th:action="@{/guardar}" method="POST" th:object="${autor}">
+            <input type="hidden" name="id" th:field="*{id}"
+            <br/>    
+            <label for="area_investigacion">[[#{autor.area_investigacion}]]: </label>
+            <input type="text" name="area_investigacion" th:field="*{area_investigacion}"/>
+            <span th:if="${#fields.hasErrors('area_investigacion')}" th:errors="*{area_investigacion}">El area de investigacion es requerida</span>
+            <br/>
+            <label for="cedula">[[#{autor.cedula}]]:</label>
+            <input type="text" name="cedula" th:field="*{cedula}"/>
+            <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}">La cedula es requerida</span>
+            <br/>
+            <label for="email">[[#{autor.email}]]:</label>
+            <input type="text" name="email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">El email es requerido</span>
+            <br/>
+            <label for="nombre">[[#{autor.nombre}]]: </label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">El nombre es requerido</span>
+            <br/>
+            <label for="apellido">[[#{autor.apellido}]]:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">El apellido es requerido</span>
+            <br/>
+            <label for="institucion">[[#{autor.institucion}]]: </label>
+            <input type="text" name="institucion" th:field="*{institucion}"/>
+            <span th:if="${#fields.hasErrors('institucion')}" th:errors="*{institucion}">La institucion es requerida</span>
+            <br/>
+            <label for="celular">[[#{autor.celular}]]:</label>
+            <input type="text" name="celular" th:field="*{celular}"/>
+            <span th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}">El celular es requerido</span>
+        <br/>
+        <input type="submit" name="guardar" th:value="#{boton.guardar}"/>
+        <input type="reset" value="LIMPIAR"/> &nbsp; &nbsp; &nbsp;
+        
+        <br/>
+        </form>
+        </br><hr>
+        <footer th:replace="Plantilla/plantilla :: pie"></footer>
+</body>

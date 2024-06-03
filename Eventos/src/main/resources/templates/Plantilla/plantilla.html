@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> APP WEB MVC CON SPRING BOOT </title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>  
+        <header th:fragment="cabecero">
+            <h1 th:text="#{pagina.titulo}">APLICACION WEB DE GESTION DE EVENTOS MVC CON SPRING BOOT</h1>
+        </header>
+    <footer th:fragment="pie">
+        <div>
+            <br/>
+            <a th:href="@{/(lang=es)}">ES</a> -
+            <a th:href="@{/(lang=en)}">EN</a> -
+            <span>[[#{pagina.pie}]]<a href="https://github.com/MurielDiazP/MVCprojectSpringBoot.git/" target="_blank">
+                    Repositorio de Github</a></span>
+        </div>
+    </footer>
+    </body>
+</html>

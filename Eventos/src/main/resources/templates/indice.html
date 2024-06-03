@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://wwww.thymeleaf.org">
+    <head>
+        <title>Pagina Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="Plantilla/plantilla :: cabecero"></header>
+        <a th:href="@{/agregar}">[[#{autor.agregar}]]</a>
+        <h4>LISTA DE AUTORES</h4>
+        <div th:if="${autores != null and !autores.empty}">
+            <table border="2">
+                <tr>
+                    <th> [[#{autor.id}]]</th>
+                    <th> [[#{autor.area_investigacion}]]</th>
+                    <th> [[#{autor.cedula}]]</th>
+                    <th> [[#{autor.email}]]</th>
+                    <th>[[#{autor.nombre}]]</th>
+                    <th> [[#{autor.apellido}]]</th>
+                    <th> [[#{autor.institucion}]]</th>
+                    <th> [[#{autor.celular}]]</th>
+                    <th> [[#{boton.editar}]]</th>
+                    <th> [[#{boton.eliminar}]]</th>
+                </tr>
+                <tr th:each="autor : ${autores}">
+                    <td th:text="${autor.id}"> Muestra id</td>
+                    <td th:text="${autor.area_investigacion}"> Muestra area</td>
+                    <td th:text="${autor.cedula}"> Muestra cedula</td>
+                    <td th:text="${autor.email}"> Muestra email</td>
+                    <td th:text="${autor.nombre}"> Muestra nombre</td>
+                    <td th:text="${autor.apellido}"> Muestra apellido</td>
+                    <td th:text="${autor.institucion}"> Muestra institucion</td>
+                    <td th:text="${autor.celular}"> Muestra celular</td>
+                    <td><a th:href="@{/editar/}+${autor.id}" . th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/eliminar/}+${autor.id}" . th:text="ELIMINAR"></a></td>
+                </tr>    
+            </table>
+        </div> 
+        <div th:if="${autores == null or autores.empty}">
+            [[#{autor.lista-vacia}]]
+        </div></br><hr>
+        <footer th:replace="Plantilla/plantilla :: pie"></footer>
+        
+    </body>
+</html>
